@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: asset-url('banner_home.jpg');
+  background-image: asset-url('banner_home3.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -13,16 +13,17 @@
 }
 
 .banner-headline {
-  color: #81968F;
-  font-size: 5em;
+  font-family: 'Vollkorn', serif;
+  color: white;
+  font-size: 90px;
   font-weight: bold;
-  text-shadow: 1px 1px 1px #81968F;
+  // text-shadow: 1px 1px 1px #81968F;
   padding: 5px;
 }
 
 .banner-subline {
-  color: #1E2F23;
-  font-size: 3em;
-  text-shadow: 1px 1px 1px #141f17;
+  color: white;
+  font-size: 40px;
+  // text-shadow: 1px 1px 1px #141f17;
   padding: 5px;
 }
