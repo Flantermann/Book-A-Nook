@@ -1,0 +1,28 @@
+.banner {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: asset-url('banner_home.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.banner-headline {
+  color: #81968F;
+  font-size: 5em;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #81968F;
+  padding: 5px;
+}
+
+.banner-subline {
+  color: #1E2F23;
+  font-size: 3em;
+  text-shadow: 1px 1px 1px #141f17;
+  padding: 5px;
+}
