@@ -1,4 +1,5 @@
 class SpacesController < ApplicationController
+  before_action :set_space, only: [:show, :destroy]
   def index
     @spaces = policy_scope(Space)
   end
@@ -27,5 +28,9 @@ class SpacesController < ApplicationController
 
   def space_params
     params.require(:space).permit(:title, :description, :category, :address, :price_per_hour)
+  end
+
+   def set_space
+    @space = Space.find(params[:id])
   end
 end
