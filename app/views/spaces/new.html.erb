@@ -11,6 +11,7 @@
         <%= f.input :category, placeholder: 'indoor or outdoor' %>
         <%= f.input :address, placeholder: 'e.g. Bergmannstraße 103, 10961 Berlin' %>
         <%= f.input :price_per_hour, placeholder: '10' %>
+        <%= f.input :photos, as: :file %>
         <%= f.submit "Create your Reading Space", class: "btn" %>
       <% end %>
     </div>
