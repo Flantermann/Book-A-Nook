@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <div>
+    <h1 class="heading">Create a new reading space</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= simple_form_for(@space) do |f| %>
+        <%= f.input :title, placeholder: 'e.g. Cozy reading nook with great view' %>
+        <%= f.input :description, placeholder: 'Describe your reading space' %>
+        <%= f.input :type, placeholder: 'indoor or outdoor' %>
+        <%= f.input :address, placeholder: 'e.g. Bergmannstraße 103, 10961 Berlin' %>
+        <%= f.input :price_per_hour, placeholder: '10' %>
+        <%= f.submit "Create your Reading Space", class: "btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>
