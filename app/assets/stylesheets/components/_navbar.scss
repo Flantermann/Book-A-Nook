@@ -14,5 +14,8 @@
 }
 
 .link-green {
-  color: #1E2F23;
+  color: $rose;
+  &:hover {
+    color: $greengray;
+  }
 }
