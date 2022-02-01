@@ -24,18 +24,6 @@ class SpacesController < ApplicationController
     authorize @space
   end
 
-  def edit
-    authorize @space
-  end
-
-  def update
-    authorize @space
-  end
-
-  def destroy
-    authorize @space
-  end
-
   private
 
   def space_params
