@@ -1,0 +1,14 @@
+.btn-sign-up {
+  background-color: $rose;
+  color: white;
+  font-size: 30px;
+  border-radius: 15px;
+  border: 1px solid white;
+  padding: 10px 25px;
+  transition: background-color 0.5s ease;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #7c565c;
+  }
+}
