@@ -9,5 +9,6 @@ class Space < ApplicationRecord
   validates :category, presence: true
   enum category: { indoor: 0, outdoor: 1 }
   inheritance_column = nil
-  # has_many_attached :photos
+  
+  has_many_attached :photos
 end
