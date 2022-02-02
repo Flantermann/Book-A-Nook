@@ -67,3 +67,29 @@
   color: $rose;
   font-size: 15px;
 }
+
+.space-edit {
+  color: $greengray;
+  font-style: italic;
+  padding: 0 10px 0 0;
+  font-size: 15px;
+  &:hover {
+    text-decoration: none;
+    color: #6c7c77;
+  }
+}
+
+.space-delete {
+  color: $rose;
+  font-style: italic;
+  padding: 0 10px 0 0;
+  font-size: 15px;
+  &:hover {
+    text-decoration: none;
+    color:#7c565c;
+  }
+}
+
+.site-end {
+  margin-bottom: 100px;
+}

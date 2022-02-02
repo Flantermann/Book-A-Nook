@@ -23,9 +23,14 @@
     <p class="space-price"><i class="fas fa-euro-sign"></i> Price per hour: <%= @space.price_per_hour %>€</p>
     <p> <%= @space.user.first_name %></p>
     <div>
-      <%= link_to "edit", edit_space_path(@space), class:"space-edit" %>
-      <%= link_to "delete", space_path(@space), class:"space-delete", method: :delete, data: { confirm: "Are you sure?" } %>
+      <% if policy(@space).edit? %>
+        <%= link_to "update", edit_space_path(@space), class:"space-edit" %>
+      <% end %>
+      <% if policy(@space).destroy? %>
+        <%= link_to "delete", space_path(@space), class:"space-delete", method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
     </div>
+    <div class="site-end"></div>
 
     <%# damit das angezeigt werden kann, muss ich wahrscheinlich im controller den user hinzufügen! %>
 </div>
