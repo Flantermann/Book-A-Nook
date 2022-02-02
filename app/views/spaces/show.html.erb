@@ -1,0 +1,24 @@
+<div class="container">
+
+<div>
+  <div class="space-category-box">
+    <p class="space-category"> <i class="fas fa-door-closed"></i> <%= @space.category %> </p>
+  </div>
+  <h1 class="space-title"> <%= @space.title %></h1>
+    <div class="photo-grid">
+      <div class="photo-container">
+        <% @space.photos.each do |photo|%>
+          <%= cl_image_tag photo.key, class:"space-photo" %>
+        <% end %>
+      </div>
+    </div>
+    <p class="space-address"><i class="fas fa-map-marker-alt"></i> <%= @space.address %> </p>
+    <div class="space-grid">
+      <p class="space-description"> <%= @space.description %> </p>
+    </div>
+    <p class="space-price"><i class="fas fa-euro-sign"></i> Price per hour: <%= @space.price_per_hour %>€</p>
+    <p> <%= @space.user.first_name %></p>
+    <%# damit das angezeigt werden kann, muss ich wahrscheinlich im controller den user hinzufügen! %>
+</div>
+
+</div>

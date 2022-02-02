@@ -8,7 +8,5 @@ class Space < ApplicationRecord
   validates :price_per_hour, presence: true
   validates :category, presence: true
   enum category: { indoor: 0, outdoor: 1 }
-  inheritance_column = nil
-  
   has_many_attached :photos
 end
