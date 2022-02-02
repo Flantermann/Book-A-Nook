@@ -2,7 +2,11 @@
 
 <div>
   <div class="space-category-box">
-    <p class="space-category"> <i class="fas fa-door-closed"></i> <%= @space.category %> </p>
+    <% if @space.category == "indoor" %>
+      <p class="space-category"> <i class="fas fa-door-closed"></i> <%= @space.category %> </p>
+    <% else %>
+      <p class="space-category"><i class="fas fa-door-open"></i> <%= @space.category %> </p>
+    <% end %>
   </div>
   <h1 class="space-title"> <%= @space.title %></h1>
     <div class="photo-grid">
@@ -18,6 +22,11 @@
     </div>
     <p class="space-price"><i class="fas fa-euro-sign"></i> Price per hour: <%= @space.price_per_hour %>€</p>
     <p> <%= @space.user.first_name %></p>
+    <div>
+      <%= link_to "edit", edit_space_path(@space), class:"space-edit" %>
+      <%= link_to "delete", space_path(@space), class:"space-delete", method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+
     <%# damit das angezeigt werden kann, muss ich wahrscheinlich im controller den user hinzufügen! %>
 </div>
 
