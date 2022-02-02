@@ -35,6 +35,8 @@ class SpacesController < ApplicationController
   end
 
   def destroy
+    @space.destroy
+    redirect_to root_path, notice: "Reading space was successfully deleted"
   end
 
   private
