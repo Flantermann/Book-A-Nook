@@ -13,6 +13,10 @@ class SpacePolicy < ApplicationPolicy
     return true
   end
 
+  def edit
+    record.user == user
+  end
+
   def update?
     record.user == user
     # - record:the space passed to the `authorize` method in controller
