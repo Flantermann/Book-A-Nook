@@ -27,6 +27,11 @@ class SpacesController < ApplicationController
   end
 
   def update
+    if @space.update(space_params)
+      redirect_to @space, notice: "Reading space was successfully updated"
+    else
+      render :edit
+    end
   end
 
   def destroy
