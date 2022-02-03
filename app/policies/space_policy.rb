@@ -9,6 +9,8 @@ class SpacePolicy < ApplicationPolicy
     return true
   end
 
+<<<<<<< HEAD
+=======
   def show?
     return true
   end
@@ -17,6 +19,7 @@ class SpacePolicy < ApplicationPolicy
     record.user == user
   end
 
+>>>>>>> 5db6761e8ed1380db58d254dc53e3916870d23c5
   def update?
     record.user == user
     # - record:the space passed to the `authorize` method in controller

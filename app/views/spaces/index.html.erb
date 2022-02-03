@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="banner-h1">Find your special reading space</h1>
+</div>
+<br>
+<div class="headline">
+  <h2>Check out the cosiest reading spaces in your area.</h2><br>
+</div>
+<div class="index">
+  <div class="container">
+    <% @spaces.each do |spaces| %>
+      <div class="card-product">
+        <% if space.photos.attached? %>
+        <%= cl_image_tag space.photos[0].key,  crop: :fill %>
+        <% end %>
+        <div class="card-product-infos">
+          <h2><%= link_to space.title %></h2>
+          <p><%= space.category %></p>
+          <h2 class="space-price"><%= space.price_per_hour %> €</h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
