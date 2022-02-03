@@ -2,7 +2,9 @@
   <div class="container">
     <h1 class="banner-headline">Book a Nook</h1>
     <p class="banner-subline">Find your perfect reading space.</p>
-    <% if !user_signed_in? %>
+    <% if user_signed_in? %>
+        <%= link_to "Browse", spaces_path, class:"btn-sign-up" %>
+    <% else %>
         <%= link_to "Sign up", new_user_registration_path, class:"btn-sign-up" %>
     <% end %>
   </div>
