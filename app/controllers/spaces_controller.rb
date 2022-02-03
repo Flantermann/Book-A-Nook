@@ -1,5 +1,5 @@
 class SpacesController < ApplicationController
-  before_action :set_space, only: [:show, :destroy]
+  before_action :set_space, only: [:show, :edit, :update, :destroy]
   def index
     @spaces = policy_scope(Space)
   end
@@ -21,9 +21,27 @@ class SpacesController < ApplicationController
   end
 
   def show
-    authorize @space
   end
 
+<<<<<<< HEAD
+=======
+  def edit
+  end
+
+  def update
+    if @space.update(space_params)
+      redirect_to @space, notice: "Reading space was successfully updated"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @space.destroy
+    redirect_to root_path, notice: "Reading space was successfully deleted"
+  end
+
+>>>>>>> 5db6761e8ed1380db58d254dc53e3916870d23c5
   private
 
   def space_params
@@ -32,5 +50,6 @@ class SpacesController < ApplicationController
 
    def set_space
     @space = Space.find(params[:id])
+    authorize @space
   end
 end
