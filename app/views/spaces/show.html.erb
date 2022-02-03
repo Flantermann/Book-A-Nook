@@ -1,0 +1,38 @@
+<div class="container">
+
+<div>
+  <div class="space-category-box">
+    <% if @space.category == "indoor" %>
+      <p class="space-category"> <i class="fas fa-door-closed"></i> <%= @space.category %> </p>
+    <% else %>
+      <p class="space-category"><i class="fas fa-door-open"></i> <%= @space.category %> </p>
+    <% end %>
+  </div>
+  <h1 class="space-title"> <%= @space.title %></h1>
+    <div class="photo-grid">
+      <div class="photo-container">
+        <% @space.photos.each do |photo|%>
+          <%= cl_image_tag photo.key, class:"space-photo" %>
+        <% end %>
+      </div>
+    </div>
+    <p class="space-address"><i class="fas fa-map-marker-alt"></i> <%= @space.address %> </p>
+    <div class="space-grid">
+      <p class="space-description"> <%= @space.description %> </p>
+    </div>
+    <p class="space-price"><i class="fas fa-euro-sign"></i> Price per hour: <%= @space.price_per_hour %>€</p>
+    <p> <%= @space.user.first_name %></p>
+    <div>
+      <% if policy(@space).edit? %>
+        <%= link_to "update", edit_space_path(@space), class:"space-edit" %>
+      <% end %>
+      <% if policy(@space).destroy? %>
+        <%= link_to "delete", space_path(@space), class:"space-delete", method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
+    <div class="site-end"></div>
+
+    <%# damit das angezeigt werden kann, muss ich wahrscheinlich im controller den user hinzufügen! %>
+</div>
+
+</div>
