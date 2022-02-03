@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>MY BOOKINGS</h1>
+  <% if @bookings.try(:any?) %>
+     <% @bookings.each.with_index(1) do |booking, index| %>
+    <div class="card-trip">
+        <%= cl_image_tag booking.space.photos[0].key %>
+        <div class="card-trip-infos">
+          <div>
+            <h2>Booking: <%= booking.space.title %></h2>
+            <p>From: <%= booking.start_time %> - To: <%= booking.end_time %>
+              <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <i class: "nav-link link-rose"></i>
+              <% end %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= booking.space.price %></h2>
+        </div>
+      </div>
+      <% end %>
+    <% else %>
+      <p> You have no bookings to display </p>
+      <p> Want to find your perfect reading space? </p>
+      <%= link_to "Check out our reading spaces", '/spaces', class:"btn-sign-up" %>
+    <% end %>
+</div>
