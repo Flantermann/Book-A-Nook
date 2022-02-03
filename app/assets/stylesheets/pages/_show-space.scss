@@ -19,6 +19,12 @@
     margin-bottom: 12px;
   }
 
+  .space-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 12px;
+  }
+
   .space-title {
     font-size: 30px !important;
     margin-bottom: 10px !important;
