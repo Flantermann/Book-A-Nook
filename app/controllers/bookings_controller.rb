@@ -3,8 +3,7 @@ class BookingsController < ApplicationController
     @space = Space.find(params[:space_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    # @booking.space = @space
-    raise
+    @booking.space = @space
     if @booking.save
       redirect_to space_path(@space), notice: "You have successfully sent a booking request"
     else
