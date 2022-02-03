@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>MY BOOKINGS</h1>
+    <h1 class="heading-booking">My Bookings</h1>
   <% if @bookings.try(:any?) %>
      <% @bookings.each.with_index(1) do |booking, index| %>
     <div class="card-trip">
@@ -16,7 +16,7 @@
       </div>
       <% end %>
     <% else %>
-      <p> You have no bookings to display </p>
-      <p> Want to find your perfect reading space? </p>
-      <%= link_to "Check out our reading spaces", '/spaces', class:"btn-sign-up" %>
+      <br>
+      <p> You have no bookings to display. </p>
+      <%= link_to "Find your perfect reading space", '/spaces', class:"btn-bookings-find" %>
     <% end %>
