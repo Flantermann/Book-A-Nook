@@ -44,3 +44,20 @@
     border: 1px solid #7c565c;
   }
 }
+
+.btn-sign-up-form {
+  background-color: white;
+  color: $rose;
+  font-size: 15px;
+  border-radius: 15px;
+  border: 1px solid $rose;
+  padding: 10px 10px;
+  margin-bottom: 20px;
+  transition: background-color 0.5s ease;
+  &:hover {
+    text-decoration: none;
+    color: #7c565c;
+    background-color: white;
+    border: 1px solid #7c565c;
+  }
+}
