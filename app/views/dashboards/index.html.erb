@@ -1,22 +1,23 @@
 <div class="container">
-    <h1 class="heading-booking">My Bookings</h1>
-  <% if @bookings.try(:any?) %>
-     <% @bookings.each.with_index(1) do |booking, index| %>
-    <div class="card-trip">
-        <%= cl_image_tag booking.space.photos[0].key %>
-        <div class="card-trip-infos">
-          <div>
-            <h2>Booking: <%= booking.space.title %></h2>
-            <p>From: <%= booking.start_time %> - To: <%= booking.end_time %>
-              <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } do %>
-                  <i class: "nav-link link-rose"></i>
-              <% end %></p>
-          </div>
-        </div>
+  <h1 class="heading-booking">My Bookings</h1>
+  <% if @my_bookings.empty? %>
+    <p> You have no bookings to display. </p>
+    <%= link_to "Find your perfect reading space", '/spaces', class:"btn-bookings-find" %>
+  <% else %>
+    <div class="trio-grid">
+    <% @my_bookings.each do | booking |%>
+      <div class="booking-card">
+        <h3><%= booking.space.title %></h3>
+        <% booking.space.photos.each do |photo|%>
+          <%= cl_image_tag photo.key, class:"space-photo" %>
+        <% end %>
+        <% if booking.status == "pending" %>
+          <p>Your request is still pending</p>
+        <% else %>
+          <p>Your booking is confirmed 🎉</p>
+        <%  end %>
       </div>
-      <% end %>
-    <% else %>
-      <br>
-      <p> You have no bookings to display. </p>
-      <%= link_to "Find your perfect reading space", '/spaces', class:"btn-bookings-find" %>
     <% end %>
+    </div>
+  <% end %>
+</div>
