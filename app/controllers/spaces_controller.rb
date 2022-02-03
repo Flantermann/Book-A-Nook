@@ -23,8 +23,6 @@ class SpacesController < ApplicationController
   def show
   end
 
-<<<<<<< HEAD
-=======
   def edit
   end
 
@@ -41,7 +39,6 @@ class SpacesController < ApplicationController
     redirect_to root_path, notice: "Reading space was successfully deleted"
   end
 
->>>>>>> 5db6761e8ed1380db58d254dc53e3916870d23c5
   private
 
   def space_params
