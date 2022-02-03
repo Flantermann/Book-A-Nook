@@ -15,6 +15,14 @@
           <%= cl_image_tag photo.key, class:"space-photo" %>
         <% end %>
       </div>
+      <div>
+        <h3 class="request-title">Send a booking request</h3>
+        <%= simple_form_for [@space, @booking] do |f| %>
+          <%= f.input :start_date, label: 'Check-in', placeholder: "#{Date.today}", required: true %>
+          <%= f.input :end_date, label: 'Check-out', placeholder: "#{Date.today}", required: true %>
+          <%= f.button :submit, "Send booking request", class: "btn-create-space"%>
+          <% end %>
+      </div>
     </div>
     <p class="space-address"><i class="fas fa-map-marker-alt"></i> <%= @space.address %> </p>
     <div class="space-grid">
