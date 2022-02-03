@@ -1,3 +1,18 @@
 .heading-form {
   color: $rose;
+  font-size: 2.5rem;
+}
+
+.label {
+  color: $darkgray;
+}
+
+.login {
+  color: $greengray;
+  font-size: 15px;
+  transition: color 0.5s ease;
+  &:hover {
+    text-decoration: none;
+    color: #6c7c77;
+  }
 }
