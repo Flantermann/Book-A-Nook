@@ -10,16 +10,16 @@
     <div class="trio-grid">
     <% @my_bookings.each do | booking |%>
       <div class="booking-card">
-        <h3><%= booking.space.title %></h3>
-        <% booking.space.photos.each do |photo|%>
-          <%= cl_image_tag photo.key, class:"space-photo" %>
-        <% end %>
-        <p> You have requested to book this space from <%= booking.start_date %> to <%= booking.end_date %>.</p>
-        <% if booking.status == "pending" %>
-          <p>Your booking request is still pending</p>
-        <% else %>
-          <p>Your booking is confirmed 🎉</p>
-        <%  end %>
+        <div class="booking-content">
+          <h3><%= link_to booking.space.title, space_path(booking), class:"booking-space-title" %></h3>
+          <p> You have made a booking request for this space from <%= booking.start_date %> to <%= booking.end_date %>.</p>
+          <% if booking.status == "pending" %>
+            <p><span class="status-booking">Status: </span><br>Your booking request is still pending.</p>
+          <% else %>
+            <p>Your booking is confirmed 🎉</p>
+          <%  end %>
+          <%= link_to "> delete booking request", booking_path(booking), class: "delete-booking", method: :delete, data: { confirm: "Are you sure you want to delete your booking request?" } %>
+        </div>
       </div>
     <% end %>
     </div>
@@ -30,30 +30,34 @@
   <% if @my_rentals.length > 0 %>
 
     <% if @my_rentals.length == 1 %>
-      <h1 class="heading-booking">Booking Requests for my space</h1>
+      <h1 class="heading-booking-requests">Booking Requests for my space</h1>
     <% else %>
-      <h1 class="heading-booking">Booking Requests for my spaces</h1>
+      <h1 class="heading-booking-requests">Booking Requests for my spaces</h1>
     <% end %>
-
-    <% @my_rentals.each do | rental | %>
-      <h3><%= rental.title %></h3>
-      <% if rental.bookings.empty?  %>
-        <p>You have no booking request for this space yet. </p>
-      <% end  %>
-      <% rental.bookings.each do |booking| %>
-        <% if booking.status == "pending" %>
-          <p> You have a booking request for this space! 🎉 </p>
-          <h5>Requested Date:</h5>
-          <p> From <%= booking.start_date %> to <%= booking.end_date %> </p>
-          <%= link_to "Accept booking",  spaces_path, class:"btn-confirm-booking" %>
-        <% elsif booking.status == "confirmed" %>
-          <p> You have confirmed a booking for this space. </p>
-        <% else %>
-          <p> Something else. </p>
-        <% end %>
+    <div class="trio-grid">
+      <% @my_rentals.each do | rental | %>
+          <div class="booking-card">
+            <div class="booking-content">
+              <h3><%= link_to rental.title, space_path(rental), class:"rental-title" %></h3>
+              <% if rental.bookings.empty?  %>
+                <p><span class="status-rental">Status: </span><br>You have no booking request for this space yet. </p>
+              <% end  %>
+              <% rental.bookings.each do |booking| %>
+                <% if booking.status == "pending" %>
+                  <p> <span class="status-rental">Status: </span><br>You have a booking request for this space from <%= booking.user.first_name %>! 🎉 </p>
+                  <h5>Requested Date:</h5>
+                  <p> From <%= booking.start_date %> to <%= booking.end_date %> </p>
+                  <%= link_to "Accept booking",  spaces_path, class:"btn-confirm-booking" %>
+                <% elsif booking.status == "confirmed" %>
+                  <p> You have confirmed a booking for this space. </p>
+                <% else %>
+                  <p> Something else. </p>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
       <% end %>
-    <% end %>
-
+    </div>
   <% end %>
 
 

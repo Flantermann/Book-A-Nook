@@ -1,6 +1,12 @@
 .heading-booking {
   font-size: 50px;
   margin-top: 40px;
+  color: $rose;
+}
+
+.heading-booking-requests {
+  font-size: 50px;
+  margin-top: 40px;
   color: $greengray;
 }
 
@@ -14,6 +20,52 @@
 .trio-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 30px;
   margin-bottom: 20px;
+}
+
+.booking-card {
+  border: 1px solid rgb(238, 238, 238);
+  border-radius: 10px;
+  background-color: #fcfcfc;
+  margin-top: 20px;
+}
+
+.booking-content {
+  padding: 24px;
+}
+
+.status-booking {
+  color: $rose;
+}
+
+.status-rental {
+  color: $greengray;
+}
+
+.booking-space-title {
+  color: $rose;
+  &:hover {
+    text-decoration: none;
+    color: #7c565c;
+  }
+}
+
+.rental-title {
+  color: $greengray;
+  &:hover {
+    text-decoration: none;
+    color: #6c7c77;
+  }
+}
+
+.delete-booking {
+  color: $lightgray;
+  font-style: italic;
+  padding: 0 10px 0 0;
+  font-size: 15px;
+  &:hover {
+    text-decoration: none;
+    color:#7c565c;
+  }
 }
