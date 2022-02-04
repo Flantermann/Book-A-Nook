@@ -1,23 +1,32 @@
-<div class="container">
-    <h1 class="banner-h1">Find your special reading space</h1>
-</div>
-<br>
-<div class="headline">
-  <h2>Check out the cosiest reading spaces in your area.</h2><br>
-</div>
-<div class="index">
+<div class="banner-dashboard">
   <div class="container">
-    <% @spaces.each do |spaces| %>
-      <div class="card-product">
-        <% if space.photos.attached? %>
-        <%= cl_image_tag space.photos[0].key,  crop: :fill %>
-        <% end %>
-        <div class="card-product-infos">
-          <h2><%= link_to space.title %></h2>
-          <p><%= space.category %></p>
-          <h2 class="space-price"><%= space.price_per_hour %> €</h2>
+    <h1 class="banner-dashboard-headline">Find <em>your</em> perfect reading space</h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="spaces-grid">
+    <% @spaces.each do |space| %>
+      <div class="spaces-card">
+        <div class="spaces-card-content">
+          <div class="space-category-box">
+            <% if space.category == "indoor" %>
+              <p class="spaces-category"> <i class="fas fa-door-closed"></i> <%= space.category %> </p>
+            <% else %>
+              <p class="spaces-category"><i class="fas fa-door-open"></i> <%= space.category %> </p>
+            <% end %>
+          </div>
+          <p class="space-address"><i class="fas fa-map-marker-alt"></i> <%= space.address %></p>
+          <% if space.photos.attached? %>
+            <%= cl_image_tag space.photos[0].key, class:"spaces-photo" %>
+          <% end %>
+          <%= link_to space.title, space_path(space), class:"spaces-card-title" %>
+          <p class="spaces-price"><i class="fas fa-euro-sign"></i> Price per hour: <%= space.price_per_hour %>€</p>
+          <%= link_to "View Details", space_path(space), class:"spaces-details" %>
         </div>
       </div>
     <% end %>
   </div>
+
 </div>
