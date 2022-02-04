@@ -29,3 +29,27 @@
   padding: 5px;
   margin-bottom: 40px;
 }
+
+.banner-dashboard {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: asset-url('banner_home3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40vh;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.banner-dashboard-headline {
+  font-family: 'Vollkorn', serif;
+  color: white;
+  font-size: 70px;
+  font-weight: bold;
+  // text-shadow: 1px 1px 1px #81968F;
+  padding: 5px;
+  margin-bottom: 0px;
+}

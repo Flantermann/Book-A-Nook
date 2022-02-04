@@ -9,7 +9,7 @@
     <% end %>
   </div>
   <h1 class="space-title"> <%= @space.title %></h1>
-    <div class="photo-grid">
+    <div class="duo-grid">
       <div class="photo-container">
         <% @space.photos.each do |photo|%>
           <%= cl_image_tag photo.key, class:"space-photo" %>

@@ -17,6 +17,7 @@
   color: $rose;
   &:hover {
     color: $greengray;
+    text-decoration: none;
   }
 }
 
@@ -24,5 +25,6 @@
   color: $greengray;
   &:hover {
     color: $rose;
+    text-decoration: none;
   }
 }

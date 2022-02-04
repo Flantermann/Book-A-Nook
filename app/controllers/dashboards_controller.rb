@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   def index
-    @current_user = bookings_url
-    @current_user = spaces_url
+    @my_bookings = current_user.bookings
+    @my_rentals = current_user.spaces
   end
 end

@@ -1,0 +1,95 @@
+.heading-booking {
+  font-size: 50px;
+  margin-top: 40px;
+  color: $rose;
+}
+
+.heading-booking-requests {
+  font-size: 50px;
+  margin-top: 40px;
+  color: $greengray;
+}
+
+.h3-booking {
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: $greengray;
+}
+
+.trio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  margin-bottom: 20px;
+}
+
+@media(max-width: 992px) {
+  .trio-grid {
+    grid-template-columns: 1fr;
+    grid-gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .heading-booking {
+    font-size: 30px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .heading-booking-requests {
+    font-size: 30px !important;
+    margin-bottom: 10px !important;
+  }
+}
+
+.booking-card {
+  border: 1px solid rgb(238, 238, 238);
+  border-radius: 10px;
+  background-color: #fcfcfc;
+  margin-top: 20px;
+}
+
+.booking-content {
+  padding: 24px;
+}
+
+.status-booking {
+  color: $rose;
+}
+
+.status-rental {
+  color: $greengray;
+}
+
+.booking-space-title {
+  color: $rose;
+  &:hover {
+    text-decoration: none;
+    color: #7c565c;
+  }
+}
+
+.rental-title {
+  color: $greengray;
+  &:hover {
+    text-decoration: none;
+    color: #6c7c77;
+  }
+}
+
+.delete-booking {
+  color: $lightgray;
+  font-style: italic;
+  padding: 0 10px 0 0;
+  font-size: 15px;
+  &:hover {
+    text-decoration: none;
+    color:#7c565c;
+  }
+}
+
+.status-box {
+  background-color: #f3f3f3;
+  padding: 10px 5px 5px 5px;
+  margin-bottom: 10px;
+}
