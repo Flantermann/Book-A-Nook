@@ -24,6 +24,24 @@
   margin-bottom: 20px;
 }
 
+@media(max-width: 992px) {
+  .trio-grid {
+    grid-template-columns: 1fr;
+    grid-gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .heading-booking {
+    font-size: 30px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .heading-booking-requests {
+    font-size: 30px !important;
+    margin-bottom: 10px !important;
+  }
+}
+
 .booking-card {
   border: 1px solid rgb(238, 238, 238);
   border-radius: 10px;
