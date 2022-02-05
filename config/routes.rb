@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :spaces do
     resources :bookings, only: :create
   end
-  resources :bookings, except: [:new, :create]
-  get "/dashboard", to: "dashboards#index" 
+  resources :bookings, except: [:new, :create, :update]
+
+  get "/dashboard", to: "dashboards#index"
+
+  put "/dashboard", to: "bookings#mark_as_accepted"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
