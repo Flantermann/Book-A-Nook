@@ -13,6 +13,13 @@
   }
 }
 
+@media(max-width: 768px) {
+  .btn-sign-up {
+    font-size: 20px;
+    padding: 7px 16px;
+  }
+}
+
 .btn-update-space {
   background-color: white;
   color: $rose;
