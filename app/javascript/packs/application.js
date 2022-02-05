@@ -20,6 +20,13 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
+import flatpickr from 'flatpickr';
+import'flatpickr/dist/flatpickr.min.css'
+
+flatpickr(".datepicker", {
+  altInput: true,
+  enableTime: true
+});
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

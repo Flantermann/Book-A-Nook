@@ -1,25 +1,24 @@
 <div class="container">
-
-<div>
-  <div class="space-category-box">
-    <% if @space.category == "indoor" %>
-      <p class="space-category"> <i class="fas fa-door-closed"></i> <%= @space.category %> </p>
-    <% else %>
-      <p class="space-category"><i class="fas fa-door-open"></i> <%= @space.category %> </p>
-    <% end %>
-  </div>
-  <h1 class="space-title"> <%= @space.title %></h1>
+  <div>
+    <div class="space-category-box">
+      <% if @space.category == "indoor" %>
+        <p class="space-category"> <i class="fas fa-door-closed"></i> <%= @space.category %> </p>
+      <% else %>
+        <p class="space-category"><i class="fas fa-door-open"></i> <%= @space.category %> </p>
+      <% end %>
+    </div>
+    <h1 class="space-title"> <%= @space.title %></h1>
     <div class="duo-grid">
       <div class="photo-container">
-        <% @space.photos.each do |photo|%>
+        <% @space.photos.each do |photo| %>
           <%= cl_image_tag photo.key, class:"space-photo" %>
         <% end %>
       </div>
       <div>
         <h3 class="request-title">Send a booking request</h3>
         <%= simple_form_for [@space, @booking] do |f| %>
-          <%= f.input :start_date, label: 'Check-in', placeholder: "#{Date.today}", required: true %>
-          <%= f.input :end_date, label: 'Check-out', placeholder: "#{Date.today}", required: true %>
+          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
           <%= f.button :submit, "Send booking request", class: "btn-create-space"%>
           <% end %>
       </div>
