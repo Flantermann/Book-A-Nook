@@ -22,7 +22,7 @@
           </li>
           <li class="nav-item dropstart">
             <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "My Dashboard", dashboard_path, class: "dropdown-item link-rose" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item link-green" %>
               <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item link-green" %>
