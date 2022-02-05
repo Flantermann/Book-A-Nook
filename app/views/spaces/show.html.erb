@@ -18,8 +18,8 @@
       <div>
         <h3 class="request-title">Send a booking request</h3>
         <%= simple_form_for [@space, @booking] do |f| %>
-          <%= f.input :start_date, label: 'Check-in', placeholder: "#{Date.today}", required: true %>
-          <%= f.input :end_date, label: 'Check-out', placeholder: "#{Date.today}", required: true %>
+          <%= f.input :start_date, label: 'Check-in', placeholder: "#{Date.today}", as: :string, required: true, input_html: { class: "datepicker"} %>
+          <%= f.input :end_date, label: 'Check-out', placeholder: "#{Date.today}", as: :string, required: true, input_html: { class: "datepicker"} %>
           <%= f.button :submit, "Send booking request", class: "btn-create-space"%>
           <% end %>
       </div>
