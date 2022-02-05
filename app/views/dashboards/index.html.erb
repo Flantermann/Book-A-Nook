@@ -61,7 +61,10 @@
                   </div>
                   <h5>Requested Date:</h5>
                   <p> <%= booking.start_date.day %>.<%= booking.start_date.month %>.<%= booking.start_date.year %> from <%= booking.start_date.hour %> to <%= booking.end_date.hour %>h. </p>
-                  <%= link_to "Accept booking",  spaces_path, class:"btn-confirm-booking" %>
+                  <%= link_to "Accept booking", dashboard_path(id:booking.id), method: :put, class:"btn-confirm-booking" %>
+                  <br>
+                  <br>
+                  <br>
                 <% elsif booking.status == "confirmed" %>
                   <div class="status-box">
                     <p> <span class="status-rental">Status: </span><br>You have confirmed a booking for this space from <%= booking.user.first_name %>. </p>
