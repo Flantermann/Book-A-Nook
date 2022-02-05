@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.space = @space
     if @booking.save
-      redirect_to space_path(@space), notice: "You have successfully sent a booking request"
+      redirect_to dashboard_path, notice: "You have successfully sent a booking request"
     else
       render 'pages/home'
     end
