@@ -1,7 +1,11 @@
 class SpacesController < ApplicationController
   before_action :set_space, only: [:show, :edit, :update, :destroy]
   def index
-    @spaces = policy_scope(Space)
+    if params[:query].present?
+      @spaces = Space.search_spaces(params[:query])
+    else
+      @spaces = policy_scope(Space)
+    end
   end
 
   def new

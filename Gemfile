@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'pundit'
 gem 'enum_help'
+gem 'pg_search'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -67,4 +68,3 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'cloudinary', '~> 1.16.0'
-

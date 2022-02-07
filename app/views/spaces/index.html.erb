@@ -5,7 +5,19 @@
 </div>
 
 <div class="container">
-
+  <div class="search-form">
+    <%= form_with url: spaces_path, method: :get do |form| %>
+      <%= form.label :query, "Where would you like to read next?", class: "search-label" %>
+      <br>
+      <%= form.text_field :query, placeholder: "Berlin", class: "search-field" %>
+      <%= form.submit "Search", class: "btn-search" %>
+    <% end %>
+  </div>
+  <div>
+    <% if @spaces.empty? %>
+      <p class="search-no-results">We are sorry, but no spaces match "<%= params[:query] %>".</p>
+    <% end %>
+  </div>
   <div class="spaces-grid">
     <% @spaces.each do |space| %>
       <div class="spaces-card">
