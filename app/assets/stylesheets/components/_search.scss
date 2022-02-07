@@ -1,15 +1,16 @@
 .search-form {
   margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 .btn-search {
   background-color: white;
   color: $greengray;
-  font-size: 20px;
+  font-size: 18px;
   border: 1px solid $greengray;
   border-radius: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
   transition: background-color 0.5s ease;
   &:hover {
     text-decoration: none;
@@ -20,10 +21,10 @@
 }
 
 .search-field {
-  padding-left: 5px;
+  padding-left: 15px;
   padding-top: 0;
   padding-bottom: 0;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .search-label {
@@ -33,4 +34,10 @@
 
 .search-no-results {
 
+}
+
+::placeholder {
+  color: $lightgray;
+  font-style: italic;
+  font-size: 15px;
 }
