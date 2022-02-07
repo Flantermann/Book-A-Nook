@@ -9,4 +9,13 @@ class Space < ApplicationRecord
   validates :category, presence: true
   enum category: { indoor: 0, outdoor: 1 }
   has_many_attached :photos
+
+  include PgSearch::Model
+  pg_search_scope :search_spaces,
+    against: [
+      [:address, 'A'], [:title, 'B'], [:description, 'C']
+    ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
