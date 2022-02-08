@@ -29,10 +29,10 @@ import'flatpickr/dist/flatpickr.min.css'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-    flatpickr(".datepicker", {
-      altInput: true,
-      altFormat: "F j, Y H:i",
-      enableTime: true,
-      minuteIncrement: 30,
-    });
+  flatpickr(".datepicker", {
+    altInput: true,
+    altFormat: "F j, Y H:i",
+    enableTime: true,
+    minuteIncrement: 30,
+  });
 })
