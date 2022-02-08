@@ -2,9 +2,8 @@
   <div>
   <% if @booking.user == current_user %>
     <%= render "booking_guest"  %>
-    <p> Hello </p>
   <% else %>
-    <p> Good Bye </p>
+    <%= render "booking_host"  %>
   <% end  %>
 
 

@@ -13,7 +13,7 @@
     <% if @booking.status == "pending" %>
       <p class="booking-status-details-text">Your booking request is still pending.</p>
     <% else %>
-      <p>Your booking is confirmed 🎉</p>
+      <p class="booking-status-details-text">Your booking is confirmed 🎉</p>
     <% end %>
     <% if @booking.status == "pending"%>
       <%= link_to "> delete booking request", booking_path(@booking), class: "delete-booking", method: :delete, data: { confirm: "Are you sure you want to delete your booking request?" } %>

@@ -1,0 +1,38 @@
+<div>
+  <h1 class="booking-title">Booking request for "<%= @booking.space.title %>"</h1>
+</div>
+<div class="duo-grid">
+  <div class="photo-container">
+    <% @booking.space.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, class:"space-photo" %>
+    <% end %>
+  </div>
+  <div class="booking-content">
+    <h3 class="request-title">Current Status</h3>
+    <p class="booking-status-details"> <%= @booking.user.first_name %> <%= @booking.user.last_name %> has made a booking request for this space for <strong><%= @booking.start_date.day %>.<%= @booking.start_date.month %>.<%= @booking.start_date.year %></strong> from <strong><%= @booking.start_date.hour %>h to <%= @booking.end_date.hour %>h</strong>.</p>
+    <% if @booking.status == "pending" %>
+      <p class="booking-status-details-text">You still have to accept or decline the booking.</p>
+    <% else %>
+      <p class="booking-status-details-text">Your have confirmed this booking.</p>
+    <% end %>
+  </div>
+  <% if @booking.message %>
+    <div>
+      <h3>Message History</h3>
+      <div>
+        <p>This is what <%= @booking.user.first_name %> sent with their booking request:</p>
+        <div class="message-box">
+          <p class="message-text"> "<%= @booking.message %>"</p>
+        </div>
+      </div>
+      <% if @booking.reply %>
+        <div>
+          <p>And here is your reply:</p>
+          <div class="message-box">
+            <p class="message-text"> "<%= @booking.reply %>"</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

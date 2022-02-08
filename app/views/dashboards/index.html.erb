@@ -7,36 +7,7 @@
 <div class="container">
 
 <%# Booking requests for spaces owned by other users %>
-
-  <h1 class="heading-booking">My Bookings</h1>
-  <% if @my_bookings.empty? %>
-    <p> You have no bookings... yet! </p>
-    <%= link_to "Browse reading spaces", '/spaces', class:"link-green" %>
-  <% else %>
-    <div class="trio-grid">
-    <% @my_bookings.each do | booking |%>
-      <div class="booking-card">
-        <div class="booking-content">
-          <h3><%= link_to booking.space.title, space_path(booking.space), class:"booking-space-title" %></h3>
-          <p> You have made a booking request for this space for <strong><%= booking.start_date.day %>.<%= booking.start_date.month %>.<%= booking.start_date.year %></strong> from <strong><%= booking.start_date.hour %>h to <%= booking.end_date.hour %>h</strong>.</p>
-          <% if booking.status == "pending" %>
-            <div class="status-box">
-              <p><span class="status-booking">Status: </span><br>Your booking request is still pending.</p>
-            </div>
-          <% else %>
-            <p>Your booking is confirmed 🎉</p>
-          <% end %>
-          <p><%= link_to "View Details", booking_path(booking), class:"booking-details" %></p>
-          <% if booking.status == "pending"%>
-            <%= link_to "> delete booking request", booking_path(booking), class: "delete-booking", method: :delete, data: { confirm: "Are you sure you want to delete your booking request?" } %>
-          <% end %>
-
-        </div>
-      </div>
-    <% end %>
-    </div>
-  <% end %>
-
+  <%= render "index_bookings_guest" %>
  <%# Booking requests for owned spaces %>
 
   <% if @my_rentals.length > 0 %>
@@ -46,53 +17,15 @@
     <% else %>
       <h1 class="heading-booking-requests">Booking Requests for my spaces</h1>
     <% end %>
-    <div class="trio-grid">
-      <% @my_rentals.each do | rental | %>
-          <div class="booking-card">
-            <div class="booking-content">
-              <h3><%= link_to rental.title, space_path(rental), class:"rental-title" %></h3>
-              <% if rental.bookings.empty?  %>
-                <div class="status-box">
-                  <p><span class="status-rental">Status: </span><br>You have no booking request for this space yet. </p>
-                </div>
-              <% end  %>
-              <% rental.bookings.each do |booking| %>
-                <% if booking.status == "pending" %>
-                  <div class="status-box">
-                    <p> <span class="status-rental">Status: </span><br>You have a booking request for this space from <%= booking.user.first_name %>! 🎉 </p>
-                    <% if booking.message %>
-                      <p><%= booking.user.first_name %> has sent you the following message:</p>
-                      <p>"<%= booking.message %>"</p>
-                      <p>You can send a reply if you like:</p>
-                      <%= simple_form_for [booking] do |f| %>
-                        <%= f.input :reply, placeholder: 'Hello lovely guest...', label: false %>
-                        <%= f.button :submit, "Reply", class: "btn-create-space", method: :patch%>
-                      <% end %>
-                      <%= booking.reply %>
-                    <% end  %>
-                  </div>
-                  <h5>Requested Date:</h5>
-                  <p> <%= booking.start_date.day %>.<%= booking.start_date.month %>.<%= booking.start_date.year %> from <%= booking.start_date.hour %> to <%= booking.end_date.hour %>h. </p>
-                  <%= link_to "Accept booking", dashboard_path(id:booking.id), method: :put, class:"btn-confirm-booking" %>
-                  <br>
-                  <br>
-                  <br>
-                <% elsif booking.status == "confirmed" %>
-                  <div class="status-box">
-                    <p> <span class="status-rental">Status: </span><br>You have confirmed a booking for this space from <%= booking.user.first_name %>. </p>
-                  </div>
-                  <h5>Confirmed Date:</h5>
-                  <p> <%= booking.start_date.day %>.<%= booking.start_date.month %>.<%= booking.start_date.year %> from <%= booking.start_date.hour %> to <%= booking.end_date.hour %>h. </p>
-                <% else %>
-                  <p> Something else. </p>
-                <% end %>
-                <%= booking.user.email %>
-                <p><%= link_to "View Details", booking_path(booking), class:"booking-details" %></p>
-              <% end %>
-            </div>
-          </div>
+
+    <% @my_rentals.each do |rental| %>
+      <% if rental.bookings.length == 0 %>
+        <p class="no-booking">You have no booking for "<%= rental.title %>" yet.</p>
+      <% else %>
+        <%= render "index_bookings_host" %>
       <% end %>
-    </div>
+    <% end %>
+
   <% end %>
 
 
