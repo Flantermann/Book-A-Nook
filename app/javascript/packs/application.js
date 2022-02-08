@@ -23,11 +23,6 @@ import "bootstrap";
 import flatpickr from 'flatpickr';
 import'flatpickr/dist/flatpickr.min.css'
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> master
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -36,6 +31,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   flatpickr(".datepicker", {
     altInput: true,
-    enableTime: true
+    enableTime: true,
+    minuteIncrement: 30
   });
 });
