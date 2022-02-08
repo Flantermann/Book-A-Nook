@@ -1,12 +1,11 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
     @bookings = current_user.bookings
   end
 
-  def show
-    @booking = Booking.find(params[:id])
-  end
+  def show; end
 
   def create
     @space = Space.find(params[:space_id])
@@ -27,17 +26,25 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path
   end
 
-  def add_reply
-    # ???
+  def edit; end
+
+  def update
+    # if @booking.update(booking_params)
+    #   redirect_to?, notice: "Reading space was successfully updated"
+    # end
+    @booking.update(booking_params)
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to dashboard_path
   end
 
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :status, :message, :reply)

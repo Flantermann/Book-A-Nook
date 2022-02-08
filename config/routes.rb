@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :spaces do
     resources :bookings, only: :create
   end
-  resources :bookings, except: [:new, :create, :update]
+  resources :bookings, except: [:new, :create]
 
   get "/dashboard", to: "dashboards#index"
 

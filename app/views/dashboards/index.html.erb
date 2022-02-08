@@ -66,8 +66,9 @@
                       <p>You can send a reply if you like:</p>
                       <%= simple_form_for [booking] do |f| %>
                         <%= f.input :reply, placeholder: 'Hello lovely guest...', label: false %>
-                        <%= f.button :submit, "Reply", class: "btn-create-space"%>
+                        <%= f.button :submit, "Reply", class: "btn-create-space", method: :patch%>
                       <% end %>
+                      <%= booking.reply %>
                     <% end  %>
                   </div>
                   <h5>Requested Date:</h5>
