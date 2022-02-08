@@ -86,6 +86,8 @@
                 <% else %>
                   <p> Something else. </p>
                 <% end %>
+                <%= booking.user.email %>
+                <p><%= link_to "View Details", booking_path(booking), class:"booking-details" %></p>
               <% end %>
             </div>
           </div>
