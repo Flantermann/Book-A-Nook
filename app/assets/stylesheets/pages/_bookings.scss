@@ -93,3 +93,37 @@
   padding: 10px 5px 5px 5px;
   margin-bottom: 10px;
 }
+
+.booking-status-details {
+  font-size: 20px;
+}
+
+.booking-status-details-text {
+  font-size: 20px;
+  color: $rose;
+}
+
+.booking-title {
+  color: $greengray;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 36px;
+}
+
+.message-box {
+  background-color: #fcfcfc;
+  margin-left: 30px;
+}
+
+.message-text {
+  padding: 20px 10px 20px 10px;
+}
+
+.booking-details {
+  color: $rose;
+  font-size: 20px;
+  &:hover {
+    text-decoration: none;
+    color: #6c7c77;
+  }
+}

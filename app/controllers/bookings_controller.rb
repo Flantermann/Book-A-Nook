@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:id])
   end
 
   def create
@@ -26,6 +27,10 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def add_reply
+    # ???
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
@@ -35,6 +40,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :status)
+    params.require(:booking).permit(:start_date, :end_date, :status, :message, :reply)
   end
 end

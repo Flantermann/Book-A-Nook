@@ -1,0 +1,46 @@
+<div class="container">
+  <div>
+    <div>
+      <h1 class="booking-title">Your Booking for "<%= @booking.space.title %>"</h1>
+    </div>
+    <div class="duo-grid">
+      <div class="photo-container">
+        <% @booking.space.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, class:"space-photo" %>
+        <% end %>
+      </div>
+      <div class="booking-content">
+        <h3 class="request-title">Current Status</h3>
+        <p class="booking-status-details"> You have made a booking request for this space for <strong><%= @booking.start_date.day %>.<%= @booking.start_date.month %>.<%= @booking.start_date.year %></strong> from <strong><%= @booking.start_date.hour %>h to <%= @booking.end_date.hour %>h</strong>.</p>
+        <% if @booking.status == "pending" %>
+          <p class="booking-status-details-text">Your booking request is still pending.</p>
+        <% else %>
+          <p>Your booking is confirmed 🎉</p>
+        <% end %>
+        <% if @booking.status == "pending"%>
+          <%= link_to "> delete booking request", booking_path(@booking), class: "delete-booking", method: :delete, data: { confirm: "Are you sure you want to delete your booking request?" } %>
+        <% end %>
+      </div>
+      <% if @booking.message %>
+        <div>
+          <h3>Message History</h3>
+          <div>
+            <p>This is what you sent with your booking request:</p>
+            <div class="message-box">
+              <p class="message-text"> "<%= @booking.message %>"</p>
+            </div>
+          </div>
+          <div>
+            <p>And here is your host's reply:</p>
+            <div class="message-box">
+              <p class="message-text"> "Hello lovely guest."</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+
+</div>

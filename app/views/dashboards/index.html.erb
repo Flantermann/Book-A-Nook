@@ -17,7 +17,7 @@
     <% @my_bookings.each do | booking |%>
       <div class="booking-card">
         <div class="booking-content">
-          <h3><%= link_to booking.space.title, space_path(booking), class:"booking-space-title" %></h3>
+          <h3><%= link_to booking.space.title, space_path(booking.space), class:"booking-space-title" %></h3>
           <p> You have made a booking request for this space for <strong><%= booking.start_date.day %>.<%= booking.start_date.month %>.<%= booking.start_date.year %></strong> from <strong><%= booking.start_date.hour %>h to <%= booking.end_date.hour %>h</strong>.</p>
           <% if booking.status == "pending" %>
             <div class="status-box">
@@ -26,9 +26,11 @@
           <% else %>
             <p>Your booking is confirmed 🎉</p>
           <% end %>
+          <p><%= link_to "View Details", booking_path(booking), class:"booking-details" %></p>
           <% if booking.status == "pending"%>
             <%= link_to "> delete booking request", booking_path(booking), class: "delete-booking", method: :delete, data: { confirm: "Are you sure you want to delete your booking request?" } %>
           <% end %>
+
         </div>
       </div>
     <% end %>
@@ -58,6 +60,15 @@
                 <% if booking.status == "pending" %>
                   <div class="status-box">
                     <p> <span class="status-rental">Status: </span><br>You have a booking request for this space from <%= booking.user.first_name %>! 🎉 </p>
+                    <% if booking.message %>
+                      <p><%= booking.user.first_name %> has sent you the following message:</p>
+                      <p>"<%= booking.message %>"</p>
+                      <p>You can send a reply if you like:</p>
+                      <%= simple_form_for [booking] do |f| %>
+                        <%= f.input :reply, placeholder: 'Hello lovely guest...', label: false %>
+                        <%= f.button :submit, "Reply", class: "btn-create-space"%>
+                      <% end %>
+                    <% end  %>
                   </div>
                   <h5>Requested Date:</h5>
                   <p> <%= booking.start_date.day %>.<%= booking.start_date.month %>.<%= booking.start_date.year %> from <%= booking.start_date.hour %> to <%= booking.end_date.hour %>h. </p>
