@@ -5,7 +5,19 @@
 </div>
 
 <div class="container">
-
+  <div class="search-form">
+    <%= form_with url: spaces_path, method: :get do |form| %>
+      <%= form.label :query, "Where would you like to read next?", class: "search-label" %>
+      <br>
+      <%= form.text_field :query, placeholder: "Type something...", class: "search-field" %>
+      <%= form.submit "Find spaces", class: "btn-search" %>
+    <% end %>
+  </div>
+  <div>
+    <% if @spaces.empty? %>
+      <p class="search-no-results">We are sorry, but no spaces match "<%= params[:query] %>".</p>
+    <% end %>
+  </div>
   <div class="spaces-grid">
     <% @spaces.each do |space| %>
       <div class="spaces-card">
@@ -22,7 +34,7 @@
             <%= cl_image_tag space.photos[0].key, class:"spaces-photo" %>
           <% end %>
           <%= link_to space.title, space_path(space), class:"spaces-card-title" %>
-          <p class="spaces-price"><i class="fas fa-euro-sign"></i> Price per hour: <%= space.price_per_hour %>€</p>
+          <p class="spaces-price"><i class="fas fa-money-bill-alt"></i></i> <%= space.price_per_hour %>€ per hour</p>
           <%= link_to "View Details", space_path(space), class:"spaces-details" %>
         </div>
       </div>
