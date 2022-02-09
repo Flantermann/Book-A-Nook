@@ -18,7 +18,7 @@
         <div class="price-box">
           <p class="space-price"><i class="fas fa-money-bill-alt"></i> <%= @space.price_per_hour %> Euro per hour</p>
         </div>
-        <% if current_user = @space.user %>
+        <% if current_user == @space.user %>
           <h3 class="request-title">Booking requests</h3>
             <% if @space.bookings.length == 1  %>
               <p class="space-description">You have a booking request for this space.</p>
@@ -45,6 +45,9 @@
     <div class="space-grid">
       <p class="space-description"> <%= @space.description %> </p>
     </div>
+    <% unless current_user == @space.user %>
+      <p class="space-user"><i class="fa fa-user"></i> Owner of this lovely space is <%= @space.user.first_name %> <%= @space.user.last_name %></p>
+    <% end %>
     <div>
       <% if policy(@space).edit? %>
         <%= link_to "update", edit_space_path(@space), class:"space-edit" %>
