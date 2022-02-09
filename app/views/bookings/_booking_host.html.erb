@@ -1,5 +1,5 @@
 <div>
-  <h1 class="booking-title">Booking request for "<%= @booking.space.title %>"</h1>
+  <h1 class="booking-title">Booking request for "<%= link_to @booking.space.title, space_path(@booking.space), class:"booking-title"%>"</h1>
 </div>
 <div class="duo-grid">
   <div class="photo-container">
@@ -30,14 +30,16 @@
         <%= f.input :reply, placeholder: 'Hello lovely guest...', label: false, class:"message-box" %>
         <%= f.button :submit, "Reply to guest", class: "btn-create-space", method: :patch%>
       <% end %>
-      <% if @booking.reply %>
-        <div>
+      <%# Here, AJAX must be added. If the replay was sent, the page should automatically no longer show the reply-bix, but the mesage that was sent %>
+
+      <%# <% if @booking.reply %>
+        <%# <div>
           <p>And here is your reply:</p>
           <div class="message-box">
-            <p class="message-text"> "<%= @booking.reply %>"</p>
-          </div>
-        </div>
-      <% end %>
+            <%# <p class="message-text"> "<%= @booking.reply %>
+          <%# </div>
+        </div> %>
+      <%# <% end %>
     </div>
   <% end %>
 </div>

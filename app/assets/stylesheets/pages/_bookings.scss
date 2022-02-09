@@ -108,6 +108,10 @@
   margin-top: 40px;
   margin-bottom: 20px;
   font-size: 36px;
+  &:hover {
+    text-decoration: none;
+    color: #6c7c77;
+  }
 }
 
 .message-box {
