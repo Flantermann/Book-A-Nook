@@ -8,6 +8,7 @@
 
 <%# Booking requests for spaces owned by other users %>
   <%= render "index_bookings_guest" %>
+
  <%# Booking requests for owned spaces %>
 
   <% if @my_rentals.length > 0 %>
@@ -19,7 +20,6 @@
     <% end %>
 
     <%= render "index_bookings_host" %>
-
 
   <% end %>
 
