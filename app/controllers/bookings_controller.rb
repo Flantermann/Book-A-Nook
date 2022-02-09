@@ -26,12 +26,16 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  # def mark_as_declined
+  #   @booking = Booking.find(params[:id])
+  #   @booking.status = "declined"
+  #   @booking.save
+  #   redirect_to dashboard_path
+  # end
+
   def edit; end
 
   def update
-    # if @booking.update(booking_params)
-    #   redirect_to?, notice: "Reading space was successfully updated"
-    # end
     if @booking.update(booking_params)
       redirect_to booking_path(@booking), notice: "Your reply was sent!"
     end

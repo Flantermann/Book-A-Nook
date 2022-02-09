@@ -18,14 +18,27 @@
         <div class="price-box">
           <p class="space-price"><i class="fas fa-money-bill-alt"></i> <%= @space.price_per_hour %> Euro per hour</p>
         </div>
-        <h3 class="request-title">Send a booking request</h3>
-        <%= simple_form_for [@space, @booking] do |f| %>
-          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.label :message, 'Message to host (optional)' %>
-          <%= f.input :message, placeholder: 'Hello lovely host...', label: false %>
-          <%= f.button :submit, "Send booking request", class: "btn-create-space"%>
-          <% end %>
+        <% if current_user = @space.user %>
+          <h3 class="request-title">Booking requests</h3>
+            <% if @space.bookings.length == 1  %>
+              <p class="space-description">You have a booking request for this space.</p>
+              <p><%= link_to "View Details", dashboard_path, class:"booking-details" %></p>
+            <% elsif @space.bookings.length > 1  %>
+              <p class="space-description">You have a booking requests for this space.</p>
+              <p><%= link_to "View Details", dashboard_path, class:"booking-details" %></p>
+            <% else %>
+              <p class="space-description">You have no booking requests for this space yet.</p>
+            <% end %>
+        <% else %>
+          <h3 class="request-title">Send a booking request</h3>
+          <%= simple_form_for [@space, @booking] do |f| %>
+            <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.label :message, 'Message to host (optional)' %>
+            <%= f.input :message, placeholder: 'Hello lovely host...', label: false %>
+            <%= f.button :submit, "Send booking request", class: "btn-create-space"%>
+            <% end %>
+        <% end %>
       </div>
     </div>
     <p class="space-address"><i class="fas fa-map-marker-alt"></i> <%= @space.address %> </p>

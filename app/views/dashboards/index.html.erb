@@ -18,13 +18,8 @@
       <h1 class="heading-booking-requests">Booking Requests for my spaces</h1>
     <% end %>
 
-    <% @my_rentals.each do |rental| %>
-      <% if rental.bookings.length == 0 %>
-        <p class="no-booking">You have no booking for "<%= rental.title %>" yet.</p>
-      <% else %>
-        <%= render "index_bookings_host" %>
-      <% end %>
-    <% end %>
+    <%= render "index_bookings_host" %>
+
 
   <% end %>
 

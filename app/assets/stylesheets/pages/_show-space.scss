@@ -70,7 +70,7 @@
 
 .space-price {
   // font-weight: bold;
-  color: $rose;
+  color: $darkgray;
   font-size: 20px;
 }
 
@@ -78,7 +78,7 @@
   color: $greengray;
   font-style: italic;
   padding: 0 10px 0 0;
-  font-size: 15px;
+  font-size: 20px;
   &:hover {
     text-decoration: none;
     color: #6c7c77;
@@ -89,7 +89,7 @@
   color: $rose;
   font-style: italic;
   padding: 0 10px 0 0;
-  font-size: 15px;
+  font-size: 20px;
   &:hover {
     text-decoration: none;
     color:#7c565c;

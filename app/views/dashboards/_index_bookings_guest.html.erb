@@ -1,7 +1,6 @@
 <h1 class="heading-booking">My Bookings</h1>
   <% if @my_bookings.empty? %>
-    <p> You have no bookings... yet! </p>
-    <%= link_to "Browse reading spaces", '/spaces', class:"link-green" %>
+    <p class="no-bookings"> You have no bookings... yet! </p>
   <% else %>
     <div class="trio-grid">
     <% @my_bookings.each do | booking |%>
