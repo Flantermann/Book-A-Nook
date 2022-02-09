@@ -1,18 +1,21 @@
 .alert {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  bottom: 50%;
+  right: 40%;
   z-index: 1000;
+  padding: 50px;
 }
 
 .alert-warning {
   color: $rose;
+  font-size: 18px;
   background-color: white;
   border-color: white;
 }
 
 .alert-info {
-  color: $rose;
+  color: $greengray;
+  font-size: 18px;
   background-color: white;
   border-color: white;
 }

@@ -25,6 +25,11 @@
           <p class="message-text"> "<%= @booking.message %>"</p>
         </div>
       </div>
+      <p>If you'd like, you can send a reply:</p>
+      <%= simple_form_for [@booking] do |f| %>
+        <%= f.input :reply, placeholder: 'Hello lovely guest...', label: false, class:"message-box" %>
+        <%= f.button :submit, "Reply to guest", class: "btn-create-space", method: :patch%>
+      <% end %>
       <% if @booking.reply %>
         <div>
           <p>And here is your reply:</p>

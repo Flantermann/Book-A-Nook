@@ -32,7 +32,9 @@ class BookingsController < ApplicationController
     # if @booking.update(booking_params)
     #   redirect_to?, notice: "Reading space was successfully updated"
     # end
-    @booking.update(booking_params)
+    if @booking.update(booking_params)
+      redirect_to booking_path(@booking), notice: "Your reply was sent!"
+    end
   end
 
   def destroy
