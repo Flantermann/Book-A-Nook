@@ -12,13 +12,17 @@
             <div class="status-box">
               <p><span class="status-booking">Status: </span><br>Your booking request is still pending.</p>
             </div>
-          <% else %>
+          <% elsif booking.status == "confirmed" %>
             <div class="status-box">
               <p><span class="status-booking">Status: </span><br>Your booking is confirmed 🎉</p>
             </div>
+          <% else %>
+            <div class="status-box">
+              <p><span class="status-booking">Status: </span><br>We're sorry, but your booking request was declined.</p>
+            </div>
           <% end %>
           <p><%= link_to "View Details", booking_path(booking), class:"booking-details" %></p>
-          <% if booking.status == "pending"%>
+          <% if booking.status == "pending" || booking.status == "declined" %>
             <%= link_to "> delete booking request", booking_path(booking), class: "delete-booking", method: :delete, data: { confirm: "Are you sure you want to delete your booking request?" } %>
           <% end %>
 

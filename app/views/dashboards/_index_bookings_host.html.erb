@@ -25,7 +25,13 @@
             <p> <%= booking.start_date.day %>.<%= booking.start_date.month %>.<%= booking.start_date.year %> from <%= booking.start_date.hour %> to <%= booking.end_date.hour %>h. </p>
             <p><%= link_to "View Details", booking_path(booking), class:"booking-details" %></p>
           <% else %>
-            <p> Something else. </p>
+            <div class="status-box">
+              <p> <span class="status-rental">Status: </span><br>You have declined this booking request from <%= booking.user.first_name %>. </p>
+            </div>
+            <h5>Declined Date:</h5>
+            <p> <%= booking.start_date.day %>.<%= booking.start_date.month %>.<%= booking.start_date.year %> from <%= booking.start_date.hour %> to <%= booking.end_date.hour %>h. </p>
+            <p><%= link_to "View Details", booking_path(booking), class:"booking-details" %></p>
+            <%= link_to "> delete booking", booking_path(booking), class: "delete-booking", method: :delete, data: { confirm: "Are you sure you want to delete this booking?" } %>
           <% end %>
         </div>
       </div>

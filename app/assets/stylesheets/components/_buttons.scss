@@ -90,12 +90,48 @@
 .btn-confirm-booking {
   background-color: white;
   color: $greengray;
-  font-size: 15px;
+  font-size: 18px;
   border-radius: 15px;
   border: 1px solid $greengray;
   padding: 10px 10px;
   margin-bottom: 20px;
   margin-top: 20px;
+  margin-right: 16px;
+  transition: background-color 0.5s ease;
+  &:hover {
+    text-decoration: none;
+    color: #6c7c77;;
+    background-color: white;
+    border: 1px solid #6c7c77;;
+  }
+}
+
+.btn-decline-booking {
+  background-color: white;
+  color: $rose;
+  font-size: 18px;
+  border-radius: 15px;
+  border: 1px solid $rose;
+  padding: 10px 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  transition: background-color 0.5s ease;
+  &:hover {
+    text-decoration: none;
+    color: #7c565c;
+    background-color: white;
+    border: 1px solid #7c565c;
+  }
+}
+
+.btn-booking-reply {
+  background-color: white;
+  color: $greengray;
+  font-size: 18px;
+  border-radius: 15px;
+  border: 1px solid $greengray;
+  padding: 10px 10px;
+  margin-bottom: 20px;
   transition: background-color 0.5s ease;
   &:hover {
     text-decoration: none;
