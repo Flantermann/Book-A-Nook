@@ -34,20 +34,20 @@ document.addEventListener('turbolinks:load', () => {
     enableTime: true
   });
 
-  if (document.querySelector('.datepicker')) {
-    flatpickr(".datepicker", {
-      altInput: true,
-      altFormat: "F j, Y H:i",
-      enableTime: true,
-      minuteIncrement: 30,
-      onChange: (selectedDates, dateStr, instance) => {
-        // console.log(selectedDates)
-        console.log(dateStr)
-        // console.log(instance)
-        const date = flatpickr.parseDate(dateStr)
-        const content = flatpickr.formatDate(date, "F j, Y h:i")
-        document.querySelectorAll('.datepicker.input')[1].value = content
-      }
-    });
-  }
+  // if (document.querySelector('.datepicker')) {
+  //   flatpickr(".datepicker", {
+  //     altInput: true,
+  //     altFormat: "F j, Y H:i",
+  //     enableTime: true,
+  //     minuteIncrement: 30,
+  //     onChange: (selectedDates, dateStr, instance) => {
+  //       // console.log(selectedDates)
+  //       console.log(dateStr)
+  //       // console.log(instance)
+  //       const date = flatpickr.parseDate(dateStr)
+  //       const content = flatpickr.formatDate(date, "F j, Y h:i")
+  //       document.querySelectorAll('.datepicker.input')[1].value = content
+  //     }
+  //   });
+  // }
 });
