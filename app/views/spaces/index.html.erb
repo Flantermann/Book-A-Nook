@@ -36,7 +36,7 @@
           <%= link_to space.title, space_path(space), class:"spaces-card-title" %>
           <p class="spaces-price"><i class="fas fa-money-bill-alt"></i></i> <%= space.price_per_hour %>€ per hour</p>
           <% unless current_user == space.user %>
-            <p class="space-owner"><i class="fa fa-user"></i> Owner: <%= space.user.first_name %> <%= space.user.last_name %> <%= space.user.email %></p>
+            <p class="space-owner"><i class="fa fa-user"></i> Owner: <%= space.user.first_name %> <%= space.user.last_name %> </p>
           <% end %>
           <%= link_to "View Details", space_path(space), class:"spaces-details" %>
         </div>
