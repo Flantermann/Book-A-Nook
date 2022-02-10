@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy, :accept, :decline]
 
   def index
     @bookings = current_user.bookings
@@ -19,19 +19,15 @@ class BookingsController < ApplicationController
     end
   end
 
-  def mark_as_accepted
-    @booking = Booking.find(params[:id])
-    @booking.status = "confirmed"
-    @booking.save
-    redirect_to dashboard_path
+  def accept
+    @booking.confirmed!
+    redirect_to booking_path(@booking), notice: "You have successfully confirmed this booking request"
   end
 
-  # def mark_as_declined
-  #   @booking = Booking.find(params[:id])
-  #   @booking.status = "declined"
-  #   @booking.save
-  #   redirect_to dashboard_path
-  # end
+  def decline
+    @booking.declined!
+    redirect_to booking_path(@booking), notice: "You have declined this booking request"
+  end
 
   def edit; end
 

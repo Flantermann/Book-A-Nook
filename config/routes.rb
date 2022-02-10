@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   resources :spaces do
     resources :bookings, only: :create
   end
-  resources :bookings, except: [:new, :create]
+  resources :bookings, except: [:new, :create] do
+    member do
+      patch 'accept', to: "bookings#accept"
+      patch 'decline', to: "bookings#decline"
+    end
+  end
 
   get "/dashboard", to: "dashboards#index"
   get "/listings", to: "listings#index"
