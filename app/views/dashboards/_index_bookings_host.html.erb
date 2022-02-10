@@ -1,3 +1,8 @@
+<% if @my_rentals.length == 1 %>
+  <h1 class="heading-booking-requests">Booking Requests for my space</h1>
+<% else %>
+  <h1 class="heading-booking-requests">Booking Requests for my spaces</h1>
+<% end %>
 <% @my_rentals.each do | rental | %>
   <div class="trio-grid">
     <% rental.bookings.each do |booking| %>

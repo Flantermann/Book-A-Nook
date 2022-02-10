@@ -11,13 +11,9 @@
 
  <%# Booking requests for owned spaces %>
 
-  <% if @my_rentals.length > 0 %>
+ <% unless @bookings_of_rentals.empty? %>
 
-    <% if @my_rentals.length == 1 %>
-      <h1 class="heading-booking-requests">Booking Requests for my space</h1>
-    <% else %>
-      <h1 class="heading-booking-requests">Booking Requests for my spaces</h1>
-    <% end %>
+  <%# <% if @my_rentals.length > 0 %>
 
     <%= render "index_bookings_host" %>
 
