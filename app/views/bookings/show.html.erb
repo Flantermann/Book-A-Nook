@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="back-box">
+    <%= link_to '<<< back', 'javascript:history.back()', class:"green-back-link" %>
+  </div>
   <div>
   <% if @booking.user == current_user %>
     <%= render "booking_guest"  %>
