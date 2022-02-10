@@ -1,0 +1,31 @@
+<div class="banner-dashboard">
+  <div class="container">
+    <h1 class="banner-dashboard-headline">Your listings</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="spaces-grid">
+    <% @listings.each do |listing| %>
+      <div class="spaces-card">
+        <div class="spaces-card-content">
+          <div class="space-category-box">
+            <% if listing.category == "indoor" %>
+              <p class="spaces-category"> <i class="fas fa-door-closed"></i> <%= listing.category %> </p>
+            <% else %>
+              <p class="spaces-category"><i class="fas fa-door-open"></i> <%= listing.category %> </p>
+            <% end %>
+          </div>
+          <p class="space-address"><i class="fas fa-map-marker-alt"></i> <%= listing.address %></p>
+          <% if listing.photos.attached? %>
+            <%= cl_image_tag listing.photos[0].key, class:"spaces-photo" %>
+          <% end %>
+          <%= link_to listing.title, space_path(listing), class:"spaces-card-title" %>
+          <p class="spaces-price"><i class="fas fa-money-bill-alt"></i></i> <%= listing.price_per_hour %>€ per hour</p>
+          <%= link_to "View Details", space_path(listing), class:"spaces-details" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

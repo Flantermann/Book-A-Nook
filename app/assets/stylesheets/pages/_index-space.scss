@@ -70,13 +70,21 @@
   color: $darkgray;
   font-size: 18px;
   margin-top: 5px;
+  margin-bottom: 1px;
 }
 
 .spaces-details {
   color: $rose;
-  font-size: 14px;
+  font-size: 18px;
   &:hover {
     text-decoration: none;
     color: #6c7c77;
   }
+}
+
+.space-owner {
+  font-size: 14px;
+  color: $darkgray;
+  margin-bottom: 16px;
+  margin-top: 10px;
 }

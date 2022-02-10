@@ -41,3 +41,26 @@
   font-style: italic;
   font-size: 15px;
 }
+
+@media(max-width: 768px) {
+  .search-form {
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }
+
+  .search-label {
+    font-size: 24px;
+    line-height: 1;
+  }
+}
+
+@media(min-width: 769px) and (max-width: 992px) {
+  .search-form {
+    margin-top: 24px;
+    margin-bottom: 20px;
+  }
+
+   .search-label {
+    line-height: 1;
+  }
+}

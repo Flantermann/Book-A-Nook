@@ -6,7 +6,7 @@
         <%= f.input :category, placeholder: 'indoor or outdoor' %>
         <%= f.input :address, placeholder: 'e.g. Bergmannstraße 103, 10961 Berlin' %>
         <%= f.input :price_per_hour, placeholder: '10' %>
-        <%= f.input :photos, as: :file %>
+        <%= f.input :photos, as: :file, input_html: {class: "d-none"}, label_html: {class: "upload-photo"}, label: "Upload a nice photo" %>
         <% if f.object.new_record? %>
           <%= f.submit "Create your Reading Space", class: "btn-create-space" %>
         <% else %>
