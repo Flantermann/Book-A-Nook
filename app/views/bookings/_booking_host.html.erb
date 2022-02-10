@@ -30,21 +30,24 @@
           <p class="message-text"> "<%= @booking.message %>"</p>
         </div>
       </div>
+
+      <% unless @booking.reply  %>
       <p class="space-description">If you'd like, you can send a reply:</p>
-      <%= simple_form_for [@booking] do |f| %>
-        <%= f.input :reply, placeholder: 'Hello lovely guest...', label: false, class:"message-box" %>
-        <%= f.button :submit, "Send reply", class: "btn-booking-reply", method: :patch%>
+        <%= simple_form_for([@booking], remote: true) do |f| %>
+          <%= f.input :reply, placeholder: 'Hello lovely guest...', label: false, class:"message-box" %>
+          <%= f.button :submit, "Send reply", class: "btn-booking-reply", method: :patch%>
+        <% end %>
       <% end %>
       <%# Here, AJAX must be added. If the reply was sent, the page should automatically no longer show the reply-bix, but the mesage that was sent %>
-
-      <%# <% if @booking.reply %>
-        <%# <div>
+<!-- -->
+      <% if @booking.reply %>
+        <div>
           <p>And here is your reply:</p>
           <div class="message-box">
-            <%# <p class="message-text"> "<%= @booking.reply %>
-          <%# </div>
-        </div> %>
-      <%# <% end %>
+            <p class="message-text"> "<%= @booking.reply %>"" </p>
+          </div>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
