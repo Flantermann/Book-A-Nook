@@ -1,0 +1,9 @@
+<div class="container">
+  <div>
+  <% if @review.user == current_user %>
+    <%= render "review"  %>
+  <% else %>
+    <%= render "review"  %>
+  <% end  %>
+  </div>
+</div>

@@ -4,10 +4,11 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
- def create
+  def create
+    # find method should be defiend private?
+    @space = Space.find(params[:space_id])
     @review = Review.new(space_params)
     @review.user = current_user
-    # authorize @space
     if @review.save
       redirect_to space_path(@space), notice: "Your review has been successfully added"
     else
@@ -15,8 +16,13 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit
+  def show; end
 
+  def edit; end
+
+  def destroy
+    @booking.destroy
+    redirect_to dashboard_path
   end
 
   private
