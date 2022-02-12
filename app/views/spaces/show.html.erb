@@ -1,5 +1,8 @@
 <div class="container">
   <div>
+    <div class="back-box">
+      <%= link_to '<<< back', 'javascript:history.back()', class:"green-back-link" %>
+    </div>
     <div class="space-category-box">
       <% if @space.category == "indoor" %>
         <p class="space-category"> <i class="fas fa-door-closed"></i> <%= @space.category %> </p>
