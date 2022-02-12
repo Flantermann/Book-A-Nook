@@ -6,7 +6,7 @@
 
 <div class="container">
 
-<% if current_user.bookings_as_owner.empty? %>
+<% if @listings.length == 0 %>
   <p class="no-listings"> You are not renting out any reading spaces of your own... yet! </p>
   <%= link_to "Rent space", new_space_path, class:"btn-rent-space" %>
 <% else  %>
