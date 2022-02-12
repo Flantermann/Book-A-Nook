@@ -38,13 +38,11 @@
           <%= f.button :submit, "Send reply", class: "btn-booking-reply", method: :patch%>
         <% end %>
       <% end %>
-      <%# Here, AJAX must be added. If the reply was sent, the page should automatically no longer show the reply-bix, but the mesage that was sent %>
-<!-- -->
       <% if @booking.reply %>
         <div>
-          <p>And here is your reply:</p>
+          <p class="space-description">And here is your reply:</p>
           <div class="message-box">
-            <p class="message-text"> "<%= @booking.reply %>"" </p>
+            <p class="message-text"> "<%= @booking.reply %>"</p>
           </div>
         </div>
       <% end %>

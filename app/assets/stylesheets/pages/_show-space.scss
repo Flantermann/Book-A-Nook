@@ -19,6 +19,12 @@
     margin-bottom: 12px;
   }
 
+  .duo-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 12px;
+  }
+
   .space-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -53,7 +59,7 @@
 .space-category {
   font-size: 15 px;
   color: $midgray;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: -5px;
 }
 

@@ -29,25 +29,24 @@ import'flatpickr/dist/flatpickr.min.css'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  flatpickr(".datepicker", {
-    altInput: true,
-    enableTime: true
-  });
 
-  // if (document.querySelector('.datepicker')) {
-  //   flatpickr(".datepicker", {
-  //     altInput: true,
-  //     altFormat: "F j, Y H:i",
-  //     enableTime: true,
-  //     minuteIncrement: 30,
-  //     onChange: (selectedDates, dateStr, instance) => {
-  //       // console.log(selectedDates)
-  //       console.log(dateStr)
-  //       // console.log(instance)
-  //       const date = flatpickr.parseDate(dateStr)
-  //       const content = flatpickr.formatDate(date, "F j, Y h:i")
-  //       document.querySelectorAll('.datepicker.input')[1].value = content
-  //     }
-  //   });
-  // }
+  if (document.querySelector('.datepicker')) {
+    flatpickr(".datepicker", {
+      altInput: true,
+      altFormat: "F j, Y H:i",
+      enableTime: true,
+      minuteIncrement: 30,
+      onChange: (selectedDates, dateStr, instance) => {
+        const date = flatpickr.parseDate(dateStr)
+        const content = flatpickr.formatDate(date, "F j, Y h:i")
+        document.querySelector('.datepicker2.input').value = content
+      }
+    });
+    flatpickr(".datepicker2", {
+      altInput: true,
+      altFormat: "F j, Y H:i",
+      enableTime: true,
+      minuteIncrement: 30,
+    });
+  }
 });

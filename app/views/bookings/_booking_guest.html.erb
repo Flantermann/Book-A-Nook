@@ -25,14 +25,14 @@
     <div>
       <h3>Message History</h3>
       <div>
-        <p>This is what you sent with your booking request:</p>
+        <p class="space-description">This is what you sent with your booking request:</p>
         <div class="message-box">
           <p class="message-text"> "<%= @booking.message %>"</p>
         </div>
       </div>
       <% if @booking.reply %>
         <div>
-          <p>And here is your host's reply:</p>
+          <p class="space-description">And here is your host's reply:</p>
           <div class="message-box">
             <p class="message-text"> "<%= @booking.reply %>"</p>
           </div>

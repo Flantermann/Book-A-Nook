@@ -1,0 +1,19 @@
+.back-box {
+  margin-top: 20px;
+}
+.rose-back-link {
+  color: $rose;
+  font-size: 18px;
+  &:hover {
+    text-decoration: none;
+    color: #7c565c;
+  }
+}
+.green-back-link {
+  color: $greengray;
+  font-size: 18px;
+  &:hover {
+    text-decoration: none;
+    color: #6c7c77;
+  }
+}
