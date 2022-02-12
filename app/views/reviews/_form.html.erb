@@ -1,0 +1,14 @@
+  <div class="row">
+    <div class="col-md-6">
+      <%= simple_form_for(@review) do |f| %>
+        <%= f.input :rating, placeholder: 'e.g. Cozy reading nook with great view' %>
+        <%= f.input :comment, placeholder: 'Describe your reading space' %>
+        
+        <% if f.object.new_record? %>
+          <%= f.submit "Create your Review", class: "btn-create-review" %>
+        <% else %>
+          <%= f.submit "Update your Review", class: "btn-update-review" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
