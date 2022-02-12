@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :bookings # bookings as a client
   has_many :spaces
   has_many :bookings_as_owner, through: :spaces, source: :bookings
+  has_many :bookmarks, dependent: :destroy
 
   validates :first_name, :last_name, :email, presence: true
   validates :email, presence: true, uniqueness: true, format: {
