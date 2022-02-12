@@ -1,0 +1,15 @@
+.bookmark-box {
+  margin-top: 10px;
+}
+
+.bookmark {
+  color: $rose;
+  &:hover {
+    text-decoration: none;
+    color: #7c565c;
+  }
+}
+
+.bookmark-text {
+  color: $lightgray;
+}

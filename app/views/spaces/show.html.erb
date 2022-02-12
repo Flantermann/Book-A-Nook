@@ -20,11 +20,6 @@
       <div>
         <div class="price-box">
           <p class="space-price"><i class="fas fa-money-bill-alt"></i> <%= @space.price_per_hour %> Euro per hour</p>
-          <% if @bookmark %>
-          <%= link_to("Delete bookmark", space_bookmark_path(@space, @bookmark), method: :delete) %>
-          <% else %>
-          <%= link_to("Set bookmark", space_bookmarks_path(@space), method: :post) %>
-          <% end %>
         </div>
         <% if current_user == @space.user %>
           <h3 class="request-title">Booking requests</h3>
@@ -55,6 +50,18 @@
     </div>
     <% unless current_user == @space.user %>
       <p class="space-user"><i class="fa fa-user"></i> Owner of this lovely space is <%= @space.user.first_name %> <%= @space.user.last_name %></p>
+    <% end %>
+    <% unless current_user == @space.user %>
+      <div class="bookmark-box">
+        <% if @bookmark %>
+          <div class="d-flex">
+            <p class="bookmark-text">You have added this space to your bookmarks.&nbsp;</p>
+            <%= link_to("> Undo", space_bookmark_path(@space, @bookmark), class:"bookmark", method: :delete) %>
+          </div>
+        <% else %>
+          <%= link_to("> add this space to your bookmarks", space_bookmarks_path(@space), class:"bookmark", method: :post) %>
+        <% end %>
+      </div>
     <% end %>
     <div>
       <% if policy(@space).edit? %>
