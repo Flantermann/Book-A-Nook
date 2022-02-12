@@ -1,0 +1,2 @@
+class ReviewscdController < ApplicationController
+end

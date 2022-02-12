@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :spaces do
     resources :bookings, only: :create
+    resources :reviews
   end
   resources :bookings, except: [:new, :create] do
     member do
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get "/dashboard", to: "dashboards#index"
+   get "/dashboard", to: "dashboards#index"
   get "/listings", to: "listings#index"
 
   put "/dashboard", to: "bookings#mark_as_accepted"
