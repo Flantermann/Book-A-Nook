@@ -4,17 +4,32 @@
   </div>
 </div>
 
+<div class="container">
   <% if @bookmarks.empty? %>
-    <p class="no-bookmarks"> You have no bookmarks yet! </p>
-  <% else %>
-    <div class="trio-grid">
-    <% @bookmarks.each do | bookmark |%>
-      <div class="bookmark-card">
-        <div class="bookmark-content">
-          <h3><%= link_to bookmark.space.title, class:"bookmark-space-title" %></h3>
-          <p> You have made a bookmark for this space for <strong><%= bookmark.space.title %>.</p>
+    <p class="no-listings"> You have no bookmarks... yet! </p>
+    <%= link_to "Browse spaces", spaces_path, class:"btn-browse-spaces" %>
+  <% else  %>
+  <div class="spaces-grid">
+    <% @bookmarks.each do |bookmark| %>
+      <div class="spaces-card">
+        <div class="spaces-card-content">
+          <div class="space-category-box">
+            <% if bookmark.space.category == "indoor" %>
+              <p class="spaces-category"> <i class="fas fa-door-closed"></i> <%= bookmark.space.category %> </p>
+            <% else %>
+              <p class="spaces-category"><i class="fas fa-door-open"></i> <%= bookmark.space.category %> </p>
+            <% end %>
+          </div>
+          <p class="space-address"><i class="fas fa-map-marker-alt"></i> <%= bookmark.space.address %></p>
+          <% if bookmark.space.photos.attached? %>
+            <%= cl_image_tag bookmark.space.photos[0].key, class:"spaces-photo" %>
+          <% end %>
+          <%= link_to bookmark.space.title, space_path(bookmark.space), class:"spaces-card-title" %>
+          <p class="spaces-price"><i class="fas fa-money-bill-alt"></i></i> <%= bookmark.space.price_per_hour %>€ per hour</p>
+          <%= link_to "View Details", space_path(bookmark.space), class:"spaces-details" %>
         </div>
       </div>
     <% end %>
-    </div>
-  <% end %>
+  </div>
+<% end %>
+</div>
