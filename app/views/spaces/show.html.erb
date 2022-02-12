@@ -20,6 +20,11 @@
       <div>
         <div class="price-box">
           <p class="space-price"><i class="fas fa-money-bill-alt"></i> <%= @space.price_per_hour %> Euro per hour</p>
+          <% if @bookmark %>
+          <%= link_to("Delete bookmark", space_bookmark_path(@space, @bookmark), method: :delete) %>
+          <% else %>
+          <%= link_to("Set bookmark", space_bookmarks_path(@space), method: :post) %>
+          <% end %>
         </div>
         <% if current_user == @space.user %>
           <h3 class="request-title">Booking requests</h3>

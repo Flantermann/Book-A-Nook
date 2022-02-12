@@ -1,0 +1,20 @@
+<div class="banner-dashboard">
+  <div class="container">
+    <h1 class="banner-dashboard-headline">Your bookmarks</h1>
+  </div>
+</div>
+
+  <% if @bookmarks.empty? %>
+    <p class="no-bookmarks"> You have no bookmarks yet! </p>
+  <% else %>
+    <div class="trio-grid">
+    <% @bookmarks.each do | bookmark |%>
+      <div class="bookmark-card">
+        <div class="bookmark-content">
+          <h3><%= link_to bookmark.space.title, class:"bookmark-space-title" %></h3>
+          <p> You have made a bookmark for this space for <strong><%= bookmark.space.title %>.</p>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  <% end %>

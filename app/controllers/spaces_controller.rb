@@ -26,6 +26,7 @@ class SpacesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @bookmark = Bookmark.find_by(user: current_user, space: @space)
   end
 
   def edit
